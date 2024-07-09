@@ -40,7 +40,6 @@ allN = sort(allN)
 reps = floor(1000*10^maxn) 
 
 # ============ FUNCTIONS ==============
-
 """
     stoch_fitness_select(mean, var)
 
@@ -277,6 +276,29 @@ function generation(PopNum, K, generations, BHbank, WTbank, pGermBH, pGermWT, ge
     return PopNum, BHbank, WTbank
 end
 
+
+"""
+    simulate(PopSize::Int64, bankLength::Int64, fits::Bool, germs::Bool, fmean::Float64, fvar::Float64)
+
+Simulates the evolution of two populations, BH (beneficial) and WT (wild type), until one population reaches fixation, both populations are lost, or 100*PopSize generations have passed.
+
+# Arguments
+- `PopSize::Int64`: The total population size.
+- `bankLength::Int64`: The length of the BHbank and WTbank vectors.
+- `fits::Bool`: A flag indicating whether fitness values are considered.
+- `germs::Bool`: A flag indicating whether germination probabilities are considered.
+- `fmean::Float64`: The mean fitness value.
+- `fvar::Float64`: The variance of the fitness values.
+
+# Returns
+- `1`: BH fixation.
+- `0`: BH loss.
+- `-1`: Both populations are lost.
+- `2`: Simulation ends after 100*PopSize generations.
+"""
+function simulate(PopSize::Int64, bankLength::Int64, fits::Bool, germs::Bool, fmean::Float64, fvar::Float64)
+    # Function body
+end
 function simulate(PopSize::Int64, bankLength::Int64, fits::Bool, germs::Bool, fmean::Float64, fvar::Float64)
     InitNum = 1 #number of bh active to start
     BHbank = zeros(Int64, bankLength) #creates a vector of zeros of length bankLength
